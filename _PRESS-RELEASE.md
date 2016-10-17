@@ -1,5 +1,7 @@
 # Project Name #
 
+> Twitter with ReactJS 
+
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
 
@@ -19,17 +21,27 @@ Once the project moves into development, the press release can be used as a touc
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
 
+  > Real-Time Twitter Stream
+
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+
+  > Microblogging for everyone 
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
+  > Twitter with ReactJS will show tweets about your choice of topic and load new ones in real time.
+
 ## Problem ##
   > Describe the problem your product solves.
 
+  > Twitter with ReactJS will automatically load new tweets in real-time without you having to manually load. 
+
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+
+  > The app will listen to the Twitter streaming API and save new tweets as they come in. On save, an event will be passed to the client side that will update the views.   
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
