@@ -1,9 +1,11 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+const App = require('./App.js');
+
 window.onload = () => {
   ReactDOM.render(
-    <div>testing testing</div>,
+    <App />,
     document.getElementById('app')
   )
 }

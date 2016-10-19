@@ -4,6 +4,7 @@
   "description": "",
   "main": "server/app.js",
   "scripts": {
+    "server": "node server/app.js",
     "build": "npm run copy-html && npm run build-js && npm run bundle-js",
     "copy-html": "cp client/src/index.html client/dist/index.html",
     "build-js": "babel client/src --out-dir client/dist --presets=es2015,react --ignore=node_modules,client/dist --source-maps inline",
