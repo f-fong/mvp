@@ -41,11 +41,13 @@ class App extends React.Component {
   onClickButton(event) {
   	this.setState({
   		newTweet: { user: '', text: '' },
-  		tweets: this.state.tweets.unshift(this.state.newTweet)
+  		tweets: [this.state.newTweet, ...this.state.tweets]
   	})
   }
 
   render() {
+    console.log(this.state.tweets)
+
     return (
       <div>
         <input type="text" placeholder="Username" value={this.state.newTweet.user} onChange={this.onNewUserChange} />
