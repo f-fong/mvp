@@ -1,3 +1,6 @@
+const React = require('react');
+const Tweet = require('./Tweet');
+
 class Feed extends React.Component {
 
 	constructor(props) {
@@ -23,3 +26,5 @@ class Feed extends React.Component {
 		)
 	}
 }
+
+module.exports = Feed;

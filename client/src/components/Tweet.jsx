@@ -1,3 +1,5 @@
+const React = require('react');
+
 class Tweet extends React.Component {
 
 	constructor(props) {
@@ -15,3 +17,5 @@ class Tweet extends React.Component {
 		)
 	}
 }
+
+module.exports = Tweet;

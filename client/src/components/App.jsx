@@ -1,4 +1,5 @@
 const React = require('react');
+const Feed = require('./Feed');
 
 class App extends React.Component {
   constructor(props) {
