@@ -1,21 +1,19 @@
 const React = require('react');
 
 class Tweet extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-	constructor(props) {
-		super(props);
-	}
-
-
-	render() {
-		return (
-			<div>
-				<a href="#" onClick={this.props.onUserClick}>
-				@{this.props.message.user}
-				</a>: {this.props.message.text}
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        <a href="#" onClick={this.props.onUserClick}>
+        @{this.props.message.user}
+        </a>: {this.props.message.text}
+      </div>
+    )
+  }
 }
 
 module.exports = Tweet;
