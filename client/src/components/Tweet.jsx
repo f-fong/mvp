@@ -1,4 +1,4 @@
-// TODO
+
 
 class Tweet extends React.Component {
 
@@ -10,7 +10,7 @@ class Tweet extends React.Component {
 	render() {
 		return (
 			<div onClick={() => { console.log('test') }}>
-				<a href="#" onClick={this.props.onUserClick}>
+				<a href={this.props.message.user}>
 				@{this.props.message.user}
 				</a>: {this.props.message.text}
 			</div>
@@ -46,14 +46,3 @@ class Feed extends React.Component {
 }
 
 ReactDOM.render(<Feed tweets={[{user:'felicia', text: 'testing'}, {user:'dan', text:'testing testing'}, {user:'felicia', text:'3rd message'}]} />, document.getElementById("app"));
-
-
-
-
-
-
-
-
-
-
-
