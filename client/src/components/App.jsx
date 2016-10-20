@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const React = require('react');
 const Feed = require('./Feed');
 
@@ -18,6 +19,15 @@ class App extends React.Component {
     this.onNewTextChange = this.onNewTextChange.bind(this);
     this.onNewUserChange = this.onNewUserChange.bind(this);
     this.onClickButton = this.onClickButton.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('going to fetch')
+    fetch('http://httpbin.org/ip')
+      .then(res => res.json())
+      .then(json => {
+        console.log('result', json);
+      });
   }
 
   onNewTextChange(event) {
@@ -46,8 +56,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.tweets)
-
     return (
       <div>
         <input type="text" placeholder="Username" value={this.state.newTweet.user} onChange={this.onNewUserChange} />
