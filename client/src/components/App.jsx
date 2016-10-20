@@ -9,11 +9,7 @@ class App extends React.Component {
     this.state = {
       username: '',
       newTweet: { user: '', text: '' },
-      tweets: [
-        { user: 'felicia', text: 'testing' },
-        { user: 'dan',     text: 'testing testing' },
-        { user: 'felicia', text: '3rd message' }
-      ]
+      tweets: []
     };
 
     this.onNewTextChange = this.onNewTextChange.bind(this);
@@ -23,10 +19,12 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('going to fetch')
-    fetch('http://httpbin.org/ip')
+    fetch('http://localhost:3000/api/tweets')
       .then(res => res.json())
       .then(json => {
-        console.log('result', json);
+        this.setState({
+          tweets: json
+        });
       });
   }
 
@@ -49,10 +47,18 @@ class App extends React.Component {
   }
 
   onClickButton(event) {
-  	this.setState({
-  		newTweet: { user: '', text: '' },
-  		tweets: [this.state.newTweet, ...this.state.tweets]
-  	})
+  	// this.setState({
+  	// 	newTweet: { user: '', text: '' },
+  	// 	tweets: [this.state.newTweet, ...this.state.tweets]
+  	// });
+    window.fetch('http://localhost:3000/api/tweets',
+      {
+        method: 'POST',
+        body: JSON.stringify(this.state.newTweet)
+      })
+      .then(function(res) {
+        console.log(res.status);
+      })
   }
 
   render() {
