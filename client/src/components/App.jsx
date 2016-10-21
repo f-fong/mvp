@@ -15,9 +15,15 @@ class App extends React.Component {
     this.onNewTextChange = this.onNewTextChange.bind(this);
     this.onNewUserChange = this.onNewUserChange.bind(this);
     this.onClickButton = this.onClickButton.bind(this);
+    this.getTweetList = this.getTweetList.bind(this);
   }
 
   componentDidMount() {
+    this.getTweetList();
+  }
+
+
+  getTweetList() {
     $.ajax({
       type: "GET",
       url: 'http://localhost:3000/api/tweets',
@@ -27,6 +33,7 @@ class App extends React.Component {
         })
       }
     });
+
   }
 
 
@@ -56,7 +63,7 @@ class App extends React.Component {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: () => {
-        // Put your code to refresh the tweets here.
+        this.getTweetList();
       }
     });
   }
