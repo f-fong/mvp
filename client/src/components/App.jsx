@@ -40,35 +40,25 @@ class App extends React.Component {
   }
 
   onNewUserChange(event) {
-  	this.setState({
-  		newTweet: {
-  			user: event.target.value,
-  			text: this.state.newTweet.text
-  		}
-  	});
+    this.setState({
+      newTweet: {
+        user: event.target.value,
+        text: this.state.newTweet.text
+      }
+    });
   }
 
   onClickButton(event) {
-    console.log('jk', JSON.stringify(this.state.newTweet))
-
-    $.post({
-      url: 'http://localhost:3000/api/tweets',
+    $.ajax({
+      url : "/api/tweets",
+      type: "POST",
       data: JSON.stringify(this.state.newTweet),
-      success: function(data) {
-        console.log('did this work?', data)
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: () => {
+        // Put your code to refresh the tweets here.
       }
     });
-
-
-
-    // fetch('http://localhost:3000/api/tweets',
-    //   {
-    //     method: 'POST',
-    //     body: JSON.stringify(this.state.newTweet)
-    //   })
-    //   .then(function(res) {
-    //     console.log(res.status);
-    //   })
   }
 
   render() {
