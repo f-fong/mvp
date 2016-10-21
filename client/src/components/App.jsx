@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const $ = require('jquery');
 const React = require('react');
 const Feed = require('./Feed');
 
@@ -18,15 +18,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('going to fetch')
-    fetch('http://localhost:3000/api/tweets')
-      .then(res => res.json())
-      .then(json => {
+    $.ajax({
+      type: "GET",
+      url: 'http://localhost:3000/api/tweets',
+      success: data => {
         this.setState({
-          tweets: json
-        });
-      });
+          tweets: data
+        })
+      }
+    });
   }
+
 
   onNewTextChange(event) {
     this.setState({
@@ -47,18 +49,26 @@ class App extends React.Component {
   }
 
   onClickButton(event) {
-  	// this.setState({
-  	// 	newTweet: { user: '', text: '' },
-  	// 	tweets: [this.state.newTweet, ...this.state.tweets]
-  	// });
-    window.fetch('http://localhost:3000/api/tweets',
-      {
-        method: 'POST',
-        body: JSON.stringify(this.state.newTweet)
-      })
-      .then(function(res) {
-        console.log(res.status);
-      })
+    console.log('jk', JSON.stringify(this.state.newTweet))
+
+    $.post({
+      url: 'http://localhost:3000/api/tweets',
+      data: JSON.stringify(this.state.newTweet),
+      success: function(data) {
+        console.log('did this work?', data)
+      }
+    });
+
+
+
+    // fetch('http://localhost:3000/api/tweets',
+    //   {
+    //     method: 'POST',
+    //     body: JSON.stringify(this.state.newTweet)
+    //   })
+    //   .then(function(res) {
+    //     console.log(res.status);
+    //   })
   }
 
   render() {
