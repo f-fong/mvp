@@ -15,9 +15,15 @@ app.get('/api/tweets', function(req, res) {
 });
 
 app.post('/api/tweets', function(req, res) {
-  console.log('here', req.body)
-  tweets.push(req.body);
-  res.status(201).end();
+  // console.log('here', req.body)
+  // tweets.push(req.body);
+  db.run('INSERT INTO Tweets VALUES (?,?)', [req.body.user, req.body.text], (err) => {
+    if (err) {
+      res.status(500).end();
+    } else {
+      res.status(201).end();
+    }
+  });
 });
 
 
